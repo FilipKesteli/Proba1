@@ -135,3 +135,122 @@ legend("topleft", regions, cex = 1.3, fill = colors)
 
 # Save the file.
 dev.off()
+
+
+
+
+
+
+
+# Box Plot
+input <- mtcars[,c('mpg','cyl')]
+print(head(input))
+
+# Give the chart file a name.
+png(file = "boxplot.png")
+
+# Plot the chart.
+boxplot(mpg ~ cyl, data = mtcars, xlab = "Number of Cylinders",
+        ylab = "Miles Per Gallon", main = "Mileage Data")
+
+# Save the file.
+dev.off()
+
+
+
+
+
+
+
+# Boxplot with Notch
+# Give the chart file a name.
+png(file = "boxplot_with_notch.png")
+
+# Plot the chart.
+boxplot(mpg ~ cyl, data = mtcars, 
+        xlab = "Number of Cylinders",
+        ylab = "Miles Per Gallon", 
+        main = "Mileage Data",
+        notch = TRUE, 
+        varwidth = TRUE, 
+        col = c("green","yellow","purple"),
+        names = c("High","Medium","Low")
+)
+# Save the file.
+dev.off()
+
+
+# HISTOGRAMS
+# Create data for the graph.
+v <-  c(9,13,21,8,36,22,12,41,31,33,19)
+
+# Give the chart file a name.
+png(file = "histogram.png")
+
+# Create the histogram.
+hist(v,xlab = "Weight",col = "yellow",border = "blue")
+
+# Save the file.
+dev.off()
+
+
+
+
+# HISTOGRAMS 2
+# Create data for the graph.
+v <- c(9,13,21,8,36,22,12,41,31,33,19)
+
+# Give the chart file a name.
+png(file = "histogram_lim_breaks.png")
+
+# Create the histogram.
+hist(v,xlab = "Weight",col = "green",border = "red", xlim = c(0,40), ylim = c(0,5),
+     breaks = 5)
+
+# Save the file.
+dev.off()
+
+
+
+
+
+
+
+
+# SCATTER PLOT
+# Get the input values.
+input <- mtcars[,c('wt','mpg')]
+
+# Give the chart file a name.
+png(file = "scatterplot.png")
+
+# Plot the chart for cars with weight between 2.5 to 5 and mileage between 15 and 30.
+plot(x = input$wt,y = input$mpg,
+     xlab = "Weight",
+     ylab = "Milage",
+     xlim = c(2.5,5),
+     ylim = c(15,30),		 
+     main = "Weight vs Milage"
+)
+
+# Save the file.
+dev.off()
+
+
+
+
+
+
+# Scatterplot Matrices
+# Give the chart file a name.
+png(file = "scatterplot_matrices.png")
+
+# Plot the matrices between 4 variables giving 12 plots.
+
+# One variable with 3 others and total 4 variables.
+
+pairs(~wt+mpg+disp+cyl,data = mtcars,
+      main = "Scatterplot Matrix")
+
+# Save the file.
+dev.off()
